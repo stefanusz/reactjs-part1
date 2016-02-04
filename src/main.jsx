@@ -4,4 +4,4 @@ var ReactDOM = require('react-dom');
 
 var ListManager = require('./components/ListManager.jsx');
 
-ReactDOM.render (<List></List>, document.getElementById('ingredients'));
+ReactDOM.render (<ListManager title="Stef First Step"></ListManager>, document.getElementById('ingredients'));

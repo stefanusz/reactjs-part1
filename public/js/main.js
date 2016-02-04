@@ -19079,8 +19079,6 @@ module.exports = ListItem;
 
 },{"react":158}],161:[function(require,module,exports){
 var React = require('react');
-var ReactDOM = require('react-dom');
-
 var List = require('./List.jsx');
 
 var ListManager = React.createClass({
@@ -19131,13 +19129,13 @@ var ListManager = React.createClass({
 
 module.exports = ListManager;
 
-},{"./List.jsx":159,"react":158,"react-dom":29}],162:[function(require,module,exports){
+},{"./List.jsx":159,"react":158}],162:[function(require,module,exports){
 var React = require('react');
 
 var ReactDOM = require('react-dom');
 
 var ListManager = require('./components/ListManager.jsx');
 
-ReactDOM.render(React.createElement(List, null), document.getElementById('ingredients'));
+ReactDOM.render(React.createElement(ListManager, { title: 'Stef First Step' }), document.getElementById('ingredients'));
 
 },{"./components/ListManager.jsx":161,"react":158,"react-dom":29}]},{},[162]);
