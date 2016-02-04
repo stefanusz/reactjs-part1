@@ -19034,7 +19034,7 @@ module.exports = require('./lib/React');
 var React = require('react');
 var ListItem = require('./ListItem.jsx');
 
-var ingredients = [{ "id": "1", "text": "first item" }, { "id": "2", "text": "second item" }, { "id": "3", "text": "third item" }, { "id": "4", "text": "fourth item" }];
+var ingredients = [{ "id": "1", "text": "first item" }, { "id": "2", "text": "second item" }, { "id": "3", "text": "third item" }];
 
 var List = React.createClass({
     displayName: 'List',
