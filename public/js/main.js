@@ -19177,6 +19177,6 @@ ReactDOM.render(React.createElement(ListManager, { title: 'A to do list.' }), do
 
 ReactDOM.render(React.createElement(ListManager, { title: 'A to do list2.' }), document.getElementById('ingredients2'));
 
-ReactDOM.render(React.createElement(ListManager, { title: 'A to do list3.', headingColor: '#b31217' }), document.getElementById('ingredients3'));
+ReactDOM.render(React.createElement(ListManager, { title: 'A to do list3.', headingColor: '#b31216' }), document.getElementById('ingredients3'));
 
 },{"./components/ListManager.jsx":161,"react":158,"react-dom":29}]},{},[162]);
