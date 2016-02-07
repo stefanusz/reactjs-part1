@@ -19082,48 +19082,85 @@ var React = require('react');
 var List = require('./List.jsx');
 
 var ListManager = React.createClass({
-    displayName: 'ListManager',
+  displayName: 'ListManager',
 
-    getInitialState: function () {
-        return { items: [], newItemText: '' };
-    },
+  getInitialState: function () {
+    return { items: [], newItemText: '' };
+  },
 
-    onChange: function (e) {
-        this.setState({ newItemText: e.target.value });
-    },
+  onChange: function (e) {
+    this.setState({ newItemText: e.target.value });
+  },
 
-    handleSubmit: function (e) {
-        e.preventDefault();
-        var currentItems = this.state.items;
+  handleSubmit: function (e) {
+    // stop the button from getting clicks since we are using form onSubmit
+    e.preventDefault();
 
-        currentItems.push(this.state.newItemText);
+    // grab the current list of items
+    var currentItems = this.state.items;
 
-        this.setState({ items: currentItems, newItemText: '' });
-    },
+    // add thew new item to the list
+    currentItems.push(this.state.newItemText);
 
-    render: function () {
+    // update the main item list with the new list & clear thew newItemText
+    this.setState({ items: currentItems, newItemText: '' });
+  },
 
-        return React.createElement(
-            'div',
-            null,
-            React.createElement(
-                'h3',
-                null,
-                this.props.title
-            ),
-            React.createElement(
-                'form',
-                { onSubmit: this.handleSubmit },
-                React.createElement('input', { onChange: this.onChange, value: this.state.newItemText }),
-                React.createElement(
-                    'button',
-                    null,
-                    'Add'
-                )
-            ),
-            React.createElement(List, { items: this.state.items })
-        );
+  render: function () {
+
+    var divStyle = {
+      marginTop: 50
+    };
+
+    var headingStyle = {};
+
+    if (this.props.headingColor) {
+      headingStyle.color = this.props.headingColor;
     }
+
+    //onChange is called with every keystroke so we can store the most recent data entered
+    // value is what the user sees in the input box - we point this to newItemText so it updates on every typed
+    return React.createElement(
+      'div',
+      { style: divStyle, className: 'col-sm-4' },
+      React.createElement(
+        'div',
+        { className: 'panel panel-primary' },
+        React.createElement(
+          'div',
+          { style: headingStyle, className: 'panel-heading' },
+          React.createElement(
+            'h3',
+            null,
+            this.props.title
+          )
+        ),
+        React.createElement(
+          'div',
+          { className: 'row panel-body' },
+          React.createElement(
+            'form',
+            { onSubmit: this.handleSubmit },
+            React.createElement(
+              'div',
+              { className: 'col-sm-8' },
+              React.createElement('input', { className: 'form-control', onChange: this.onChange, value: this.state.newItemText })
+            ),
+            React.createElement(
+              'div',
+              { className: 'col-sm-4' },
+              React.createElement(
+                'button',
+                { className: 'btn btn-primary' },
+                'Add'
+              )
+            )
+          ),
+          React.createElement(List, { items: this.state.items })
+        )
+      )
+    );
+  }
 
 });
 
@@ -19136,6 +19173,10 @@ var ReactDOM = require('react-dom');
 
 var ListManager = require('./components/ListManager.jsx');
 
-ReactDOM.render(React.createElement(ListManager, { title: 'Stef First Step' }), document.getElementById('ingredients'));
+ReactDOM.render(React.createElement(ListManager, { title: 'A to do list.' }), document.getElementById('ingredients'));
+
+ReactDOM.render(React.createElement(ListManager, { title: 'A to do list2.' }), document.getElementById('ingredients2'));
+
+ReactDOM.render(React.createElement(ListManager, { title: 'A to do list3.', headingColor: '#b31217' }), document.getElementById('ingredients3'));
 
 },{"./components/ListManager.jsx":161,"react":158,"react-dom":29}]},{},[162]);
